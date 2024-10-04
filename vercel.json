@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "name": "mi-proyecto-login-clima",
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/login",
+      "methods": ["POST"],
+      "dest": "/api/login.js"
+    },
+    {
+      "src": "/api/clima",
+      "methods": ["GET"],
+      "dest": "/api/clima.js"
+    }
+  ],
+  "env": {
+    "SECRET_KEY": "parce1421"  
+  }
+}
