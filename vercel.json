@@ -1,0 +1,27 @@
+{
+    "version": 2,
+    "name": "mi-proyecto-login-clima",
+    "builds": [
+      {
+        "src": "index.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/login",
+        "methods": ["POST"],
+        "dest": "/api/login.js"
+      },
+      {
+        "src": "/api/clima",
+        "methods": ["GET"],
+        "dest": "/api/clima.js"
+      }
+    ],
+    "env": {
+      "TOKEN": "tu_token_aqui",
+      "API_KEY": "tu_api_key_aqui"
+    }
+  }
+  
