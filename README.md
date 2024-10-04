@@ -5,8 +5,6 @@ link = https://parcial-ii-daniel-forero14.vercel.app/
 
 # Consultemos el clima
 
-Daniel Felipe Forero Sánchez 
-link de despliegue = 
 
 Este proyecto consiste en un reto de desarrollo backend en el que debes crear una API REST utilizando el framework Express.js. El objetivo principal es que implementes un sistema de autenticación mediante token de sesión y un endpoint que consulte la API externa de Open Meteo para obtener la temperatura basándose en coordenadas geográficas.
 
