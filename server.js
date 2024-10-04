@@ -1,4 +1,4 @@
-// server.js
+
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const axios = require('axios');
@@ -10,7 +10,6 @@ const SECRET_KEY = process.env.SECRET_KEY || 'your-secret-key';
 
 app.use(express.json());
 
-// Endpoint de autenticación
 app.post('/login', (req, res) => {
     const { email, password } = req.body;
     if (email === 'admin@admin.com' && password === 'admin') {
@@ -20,7 +19,6 @@ app.post('/login', (req, res) => {
     res.status(401).json({ message: 'Credenciales incorrectas' });
 });
 
-// Middleware de autenticación
 const authenticateToken = (req, res, next) => {
     const token = req.headers['authorization'];
     if (!token) return res.status(403).json({ message: 'Token requerido' });
@@ -32,7 +30,6 @@ const authenticateToken = (req, res, next) => {
     });
 };
 
-// Endpoint de clima
 app.get('/weather', authenticateToken, async (req, res) => {
     const { latitude, longitude } = req.query;
     if (!latitude || !longitude) return res.status(400).json({ message: 'Faltan coordenadas' });
@@ -48,10 +45,8 @@ app.get('/weather', authenticateToken, async (req, res) => {
     }
 });
 
-// Manejo de rutas no definidas
 app.use((req, res) => {
     res.status(404).json({ message: 'Ruta no encontrada' });
 });
 
-// Iniciar el servidor
 app.listen(PORT, () => console.log(`Servidor corriendo en el puerto ${PORT}`));
